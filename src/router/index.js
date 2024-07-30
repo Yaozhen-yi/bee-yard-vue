@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 import HomeView from '../components/homeView.vue';
 import AboutView from '../components/about.vue';
@@ -8,7 +8,7 @@ import Webform from "../components/webform.vue";
 import FormDisplay from "../components/formDisplay.vue";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
