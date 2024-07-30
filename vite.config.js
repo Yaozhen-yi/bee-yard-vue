@@ -13,5 +13,5 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  base: '/bee-yard-vue/' // 这里添加你的仓库名称
+  base: '/bee-yard-vue3/' // 这里添加你的仓库名称
 })
