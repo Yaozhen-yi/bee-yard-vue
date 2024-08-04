@@ -25,7 +25,7 @@ const router = useRouter();
 const submit = () => {
   $v.value.$touch();
   if ($v.value.$invalid) {
-    alert('表单有错误，请检查输入内容。');
+    alert('表單有錯誤,請確認內容。');
     return;
   }
 
@@ -56,24 +56,24 @@ const submit = () => {
       <div>
         <label for="name">姓名:</label>
         <input id="name" v-model="name" type="text">
-        <span v-if="!$v.name.required && $v.name.$error">姓名必须填写</span>
+        <span v-if="!$v.name.required && $v.name.$error">姓名必須填寫</span>
       </div>
       <div>
         <label for="phone">电话:</label>
         <input id="phone" v-model="phone" type="text">
-        <span v-if="!$v.phone.required && $v.phone.$error">请输入电话号码</span>
-        <span v-if="!$v.phone.numeric && $v.phone.$error">电话号码必须是数字</span>
+        <span v-if="!$v.phone.required && $v.phone.$error">請輸入電話號碼</span>
+        <span v-if="!$v.phone.numeric && $v.phone.$error">電號號碼必須是數字</span>
       </div>
       <div>
         <label for="address">地址:</label>
         <input id="address" v-model="address" type="text">
-        <span v-if="!$v.address.required && $v.address.$error">请输入地址</span>
+        <span v-if="!$v.address.required && $v.address.$error">請輸入地址</span>
       </div>
       <div>
-        <label for="email">邮箱:</label>
+        <label for="email">E-mail:</label>
         <input id="email" v-model="emailField" type="email">
-        <span v-if="!$v.emailField.required && $v.emailField.$error">邮箱必须填写</span>
-        <span v-if="!$v.emailField.email && $v.emailField.$error">不是一个有效的 e-mail 地址</span>
+        <span v-if="!$v.emailField.required && $v.emailField.$error">E-mail</span>
+        <span v-if="!$v.emailField.email && $v.emailField.$error">不是一個有效的 e-mail 地址</span>
       </div>
       <button type="submit" class="btn">下一步</button>
    </form>
