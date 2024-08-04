@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed,defineComponent } from "vue";
 import { useRouter } from 'vue-router';
 
 /*圖片載入 */
@@ -89,8 +89,7 @@ const sendData = () => {
         <li>
           <v-img :src='Ph1' width='450'></v-img>
           <p class="introduce">
-            <b class="title">3/5斤裝純蜜<span style="color:red;">NT.700/NT.1000</span></b>
-            <br>
+            <b class="title">3/5斤裝純蜜<span style="color:red;">NT.700/NT.1000</span></b><br>
             <b class="taste">口味:百花蜜、咸豐草蜜、烏桕密</b><br>
             <b class="title">3/5斤裝純蜜<span style="color:red;">NT.800/NT.1100</span> </b><br>
             <b class="taste">口味:荔枝蜜</b><br>
@@ -106,7 +105,7 @@ const sendData = () => {
             <b class="taste">口味:百花蜜、咸豐草蜜、烏桕密</b><br>
             <b class="title">窄口瓶<span style="color:red;">NT.450</span> </b><br>
             <b class="taste">口味:荔枝蜜、龍眼蜜、千層蜜、紅柴蜜</b><br>
-            <b class="title">結晶蜜<span style="color:red;">NT.600</span> </b><br>
+            <b class="title">結晶蜜<span style="color:red;">NT.600</span> </b>
           </p>
           <input v-model="inputNarrow" type="text" placeholder="(填口味及數量) ex.百花蜜, 3">
         </li> 
@@ -222,7 +221,7 @@ const sendData = () => {
             <b>商品總金額</b>
             <input v-model="inputMoney" type="text" placeholder="請填入金額">
           </p>
-           <button class="btn" @click="sendData">下一步</button>
+           <button class="btn" @click="sendData">送出</button>
         </li>
        
          
@@ -257,7 +256,6 @@ ul li{
   margin-top: 30px;
   font-size: 20px;
 }
-
 /*右邊商品介紹-純蜜系列*/
 .right{
   float: left;
@@ -285,12 +283,11 @@ ul li{
 }
 .right .pure_honey ul li .introduce{
   margin-bottom: 20px;
-  margin-left: 10px;
-  width: 450px;
+  margin-left: 35px;
+  width: 400px;
 }
 .right .pure_honey ul li .introduce b{
   font-size:20px;
-  
 }
 .right .pure_honey ul li input{
   position: relative;
@@ -324,7 +321,8 @@ ul li{
 }
 .right .gift_box ul li .introduce{
   margin-bottom: 20px;
-  width: 450px;
+  margin-left: 35px;
+  width: 400px;
 }
 .right .gift_box ul li .introduce b{
   font-size:20px;
@@ -366,7 +364,8 @@ ul li{
 }
 .right .other ul li .introduce{
   margin-bottom: 20px;
-  width: 450px;
+  margin-left: 35px;
+  width: 400px;
 }
 .right .other ul li .introduce b{
   font-size:20px;
