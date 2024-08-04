@@ -25,7 +25,7 @@ const router = useRouter();
 const submit = () => {
   $v.value.$touch();
   if ($v.value.$invalid) {
-    alert('表單有錯誤,請確認內容。');
+    alert('表單有錯誤,請確認輸入內容。');
     return;
   }
 

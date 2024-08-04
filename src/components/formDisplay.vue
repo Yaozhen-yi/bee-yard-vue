@@ -48,9 +48,9 @@ const isVisible = (value) => value !== '';
         <div class="people">
         <h2>訂購人資訊</h2>
             <p id="information1">姓名: {{ peopleData.name }}</p>
-            <p id="information2">电话: {{ peopleData.phone }}</p>
+            <p id="information2">電話: {{ peopleData.phone }}</p>
             <p id="information3">地址: {{ peopleData.address }}</p>
-            <p id="information4">邮箱: {{ peopleData.emailField }}</p>
+            <p id="information4">E-mail: {{ peopleData.emailField }}</p>
         </div>
         <h2>訂購資訊</h2>
         <div class="product">
