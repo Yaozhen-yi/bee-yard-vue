@@ -1,96 +1,106 @@
 <script setup>
-import { useVuelidate } from '@vuelidate/core' ;
-import { email, required } from '@vuelidate/validators'
-import { reactive, computed } from "vue";
+import { ref } from 'vue';
+import useVuelidate from '@vuelidate/core';
+import { required, email, numeric } from '@vuelidate/validators';
+import { useRouter } from 'vue-router';
 
-const state = reactive({
-    name:"",
-    phone: "",
-    address: "",
-    email: "",
-});
+
+
+const name = ref('');
+const phone = ref('');
+const address = ref('');
+const emailField = ref('');
+
 const rules = {
   name: { required },
-  phone: { required },
+  phone: { required, numeric },
   address: { required },
-  email: { required, email: true }
+  emailField: { required, email }
 };
-// 使用Vuelidate函式，傳入規則以及響應式資料
-const v$ = useVuelidate(rules, state)
 
-/*增加error-message屬性,可以即時告知用戶哪裡有錯 */
-/*$errors是陣列會顯示錯誤,把$message提取出來顯示到畫面上*/
-const nameErrorMsg = computed(() => {
-  let errors = [];
-  v$.value.name.$errors.forEach((error) => {
-    errors.push(error.$message);
-  });
-});
-const phoneErrorMsg = computed(() => {
-  let errors = [];
-  v$.value.phone.$errors.forEach((error) => {
-    errors.push(error.$message);
-  });
-});
-const addressErrorMsg = computed(() => {
-  let errors = [];
-  v$.value.address.$errors.forEach((error) => {
-    errors.push(error.$message);
-  });
-});
-const emailErrorMsg = computed(() => {
-  let errors = [];
-  v$.value.email.$errors.forEach((error) => {
-    errors.push(error.$message);
-  });
-});
+const $v = useVuelidate(rules, { name, phone, address, emailField });
+// /* 跳轉路由*/
+const router = useRouter();
 
-const submitForm = () =>{
-  // TODO: 驗證
-  v$.value.$validate();
+const submit = () => {
+  $v.value.$touch();
+  if ($v.value.$invalid) {
+    alert('表单有错误，请检查输入内容。');
+    return;
+  }
+
+  const data = {
+    name:name.value,
+    phone: phone.value,
+    address: address.value,
+    emailField: emailField.value,
+  };
+
+  console.log("輸入的數據是:",data)
+
+  /*將data數據儲存到sessionStorage,在formDisplay中顯示 */
+  sessionStorage.setItem('peopleData', JSON.stringify(data));
+  //跳轉到formDisplay頁面
+  router.push('/formDisplay');
+  alert('表单提交成功！');
+};
+
   
-  console.log(v$.value);
-  if (!v$.value.$error) {
-    alert("送出成功");
-  } else {
-    alert("失敗");
-}
-console.log('提交的数据:', state);
-};
 
 </script>
 
 <template>
-  <form>
-    <h3>訂購人資料</h3>
-    <v-sheet>
-      <b>姓名</b>
-        <v-text-field  v-model="state.name" :counter="10" :error-messages="nameErrorMsg" label="Name" required @blur="v$.name.$touch" @input="v$.name.$touch"></v-text-field>
-        <b>電話</b>
-        <v-text-field v-model="state.phone" :counter="10" :error-messages="phoneErrorMsg" label="Phone" required @blur="v$.phone.$touch" @input="v$.phone.$touch" ></v-text-field>
-        <b>收貨地址</b>
-        <v-text-field v-model="state.address" :counter="25" :error-messages="addressErrorMsg" label="Address" required @blur="v$.address.$touch" @input="v$.address.$touch" ></v-text-field>
-        <b>電子信箱</b>
-        <v-text-field v-model="state.email" :counter="15" :error-messages="emailErrorMsg" label="E-mail" required @blur="v$.email.$touch" @input="v$.email.$touch" ></v-text-field>
-        <router-link to="/formDisplay">
-          <v-btn class="me-4" @click="submitForm"> submit</v-btn></router-link>
-</v-sheet>
-  </form>
+  <div class="form">
+    <h3 class="title">訂購人資訊</h3>
+    <form id="dataForm"  @submit.prevent="submit"  method="post">
+      <div>
+        <label for="name">姓名:</label>
+        <input id="name" v-model="name" type="text">
+        <span v-if="!$v.name.required && $v.name.$error">姓名必须填写</span>
+      </div>
+      <div>
+        <label for="phone">电话:</label>
+        <input id="phone" v-model="phone" type="text">
+        <span v-if="!$v.phone.required && $v.phone.$error">请输入电话号码</span>
+        <span v-if="!$v.phone.numeric && $v.phone.$error">电话号码必须是数字</span>
+      </div>
+      <div>
+        <label for="address">地址:</label>
+        <input id="address" v-model="address" type="text">
+        <span v-if="!$v.address.required && $v.address.$error">请输入地址</span>
+      </div>
+      <div>
+        <label for="email">邮箱:</label>
+        <input id="email" v-model="emailField" type="email">
+        <span v-if="!$v.emailField.required && $v.emailField.$error">邮箱必须填写</span>
+        <span v-if="!$v.emailField.email && $v.emailField.$error">不是一个有效的 e-mail 地址</span>
+      </div>
+      <button type="submit" class="btn">下一步</button>
+   </form>
+  </div>
+   
 </template>
 
 <style>
-
-h3{
-    font-size: 50px;
-    font-weight: 700;
+.form{
+    text-align: center;
+    font-size: 1.5rem;
 }
-b{
-    font-size: 30px;
-} 
-.v-text-field{
-    /* margin-top: -70px; */
-    height: 110px;
-    /* margin-bottom: 70px; */
-    margin: -50px 0 70px 0;
+.form .title{
+  font-size: 2rem;
+  font-weight: 700;
+}
+.form label{
+    margin-right: 1rem;
+}
+.form input{
+    border: 2px solid black;
+    margin: 1rem 0;
+}
+.btn{
+  border: 2px solid black;
+  width: 200px;
+  height: 100px;
+  margin-top: 0;
 }
 </style>

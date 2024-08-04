@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed,defineComponent } from "vue";
+import { ref } from "vue";
 import { useRouter } from 'vue-router';
 
 /*圖片載入 */
@@ -65,7 +65,7 @@ const sendData = () => {
   /*將data數據儲存到sessionStorage,在formDisplay中顯示 */
   sessionStorage.setItem('formData', JSON.stringify(data));
   //跳轉到formDisplay頁面
-  router.push('/formDisplay');
+  router.push('/webform');
 };
 
 </script>
@@ -90,10 +90,11 @@ const sendData = () => {
           <v-img :src='Ph1' width='450'></v-img>
           <p class="introduce">
             <b class="title">3/5斤裝純蜜<span style="color:red;">NT.700/NT.1000</span></b>
+            <br>
             <b class="taste">口味:百花蜜、咸豐草蜜、烏桕密</b><br>
-            <b class="title">3/5斤裝純蜜<span style="color:red;">NT.800/NT.1100</span> </b>
+            <b class="title">3/5斤裝純蜜<span style="color:red;">NT.800/NT.1100</span> </b><br>
             <b class="taste">口味:荔枝蜜</b><br>
-            <b class="title">3/5斤裝純蜜<span style="color:red;">NT.900/NT1300</span> </b>
+            <b class="title">3/5斤裝純蜜<span style="color:red;">NT.900/NT1300</span> </b><br>
             <b class="taste">口味:龍眼蜜、千層蜜、紅柴蜜</b> 
           </p>
           <input v-model="inputKG" type="text" placeholder="(填口味及數量) ex.百花蜜, 3">
@@ -101,20 +102,20 @@ const sendData = () => {
         <li>
           <v-img :src='PH2'width='450'></v-img>
           <p class="introduce">
-            <b class="title">窄口瓶<span style="color:red;">NT.400</span></b>
+            <b class="title">窄口瓶<span style="color:red;">NT.400</span></b><br>
             <b class="taste">口味:百花蜜、咸豐草蜜、烏桕密</b><br>
-            <b class="title">窄口瓶<span style="color:red;">NT.450</span> </b>
+            <b class="title">窄口瓶<span style="color:red;">NT.450</span> </b><br>
             <b class="taste">口味:荔枝蜜、龍眼蜜、千層蜜、紅柴蜜</b><br>
-            <b class="title">結晶蜜<span style="color:red;">NT.600</span> </b>
+            <b class="title">結晶蜜<span style="color:red;">NT.600</span> </b><br>
           </p>
           <input v-model="inputNarrow" type="text" placeholder="(填口味及數量) ex.百花蜜, 3">
         </li> 
         <li>
           <v-img :src='PH3'width='450'></v-img>
           <p class="introduce">
-            <b class="title">果糖瓶裝<span style="color:red;">NT.250</span></b>
+            <b class="title">果糖瓶裝<span style="color:red;">NT.250</span></b><br>
             <b class="taste">口味:百花蜜、咸豐草蜜、烏桕密</b><br>
-            <b class="title">果糖瓶裝<span style="color:red;">NT.300</span> </b>
+            <b class="title">果糖瓶裝<span style="color:red;">NT.300</span> </b><br>
             <b class="taste">口味:荔枝蜜、龍眼蜜、千層蜜、紅柴蜜</b><br>
           </p>
           <input v-model="inputSuger" type="text" placeholder="(填口味及數量) ex.百花蜜, 3">
@@ -221,7 +222,7 @@ const sendData = () => {
             <b>商品總金額</b>
             <input v-model="inputMoney" type="text" placeholder="請填入金額">
           </p>
-           <button class="btn" @click="sendData">送出</button>
+           <button class="btn" @click="sendData">下一步</button>
         </li>
        
          
@@ -284,9 +285,12 @@ ul li{
 }
 .right .pure_honey ul li .introduce{
   margin-bottom: 20px;
+  margin-left: 10px;
+  width: 450px;
 }
 .right .pure_honey ul li .introduce b{
   font-size:20px;
+  
 }
 .right .pure_honey ul li input{
   position: relative;
@@ -320,6 +324,7 @@ ul li{
 }
 .right .gift_box ul li .introduce{
   margin-bottom: 20px;
+  width: 450px;
 }
 .right .gift_box ul li .introduce b{
   font-size:20px;
@@ -353,11 +358,15 @@ ul li{
   float: left;
   margin:20px;
   width: 450px;
-  height: 600px;
+  height: 500px;
   text-align: center;
+}
+.right .other ul li:nth-child(7){
+  height: 700px;
 }
 .right .other ul li .introduce{
   margin-bottom: 20px;
+  width: 450px;
 }
 .right .other ul li .introduce b{
   font-size:20px;
@@ -370,7 +379,6 @@ ul li{
   margin-left: 100px;
   font-size: 20px;
   text-align: center;
-
 }
 
 .right .other ul li .money{
