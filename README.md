@@ -1,3 +1,6 @@
+使用Vue框架(連結:首頁、關於、蜂蜜迷思、商品介紹)    
+商品的購買方式讓使用者輸入想要的數量後點擊送出，送出後會跳轉頁面讓使用者確定商品數量以及讓使用者輸入購買的基本訊息
+      
 # bee-yard
 
 This template should help get you started developing with Vue 3 in Vite.
