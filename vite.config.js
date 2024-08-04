@@ -8,7 +8,8 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      '@': '/src'
+      '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  base: '/bee-yard-vue/' // 这里添加你的仓库名称
 })
