@@ -53,7 +53,7 @@ const submit = () => {
   /*將data數據儲存到sessionStorage,在formDisplay中顯示 */
   sessionStorage.setItem('peopleData', JSON.stringify(data));
   //跳轉到formDisplay頁面
-  router.push('/displayForm');
+  router.push('/formDisplay');
   alert('表单提交成功！');
 };
 </script>
@@ -112,6 +112,12 @@ const submit = () => {
 .form input{
     border: 2px solid black;
     margin: 1rem 0;
+}
+.form span {
+  width: 100%;
+  color: red;
+  display: block;
+  margin: 0 auto;
 }
 .btn{
   border: 2px solid black;
