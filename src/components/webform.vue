@@ -59,7 +59,7 @@ const submit = () => {
         <span v-if="!$v.name.required && $v.name.$error">姓名必須填寫</span>
       </div>
       <div>
-        <label for="phone">电话:</label>
+        <label for="phone">電話:</label>
         <input id="phone" v-model="phone" type="text">
         <span v-if="!$v.phone.required && $v.phone.$error">請輸入電話號碼</span>
         <span v-if="!$v.phone.numeric && $v.phone.$error">電號號碼必須是數字</span>
