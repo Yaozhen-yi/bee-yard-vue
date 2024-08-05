@@ -71,69 +71,72 @@ import Right4 from "@/assets/images/portable.jpg";
 </div>
 
   </template>
-  <style scoped>
-  div{
-    width: 1240px;
-    margin:20px -10px;
+ <style scoped>
+ div{
+   width: 1240px;
+   margin:20px -10px;
 }
 .lunbo{
-  margin-top: 40px;
-  margin-left: 5px;
+ margin-top: 40px;
+ margin-left: 5px;
 }
-  .hd{
-    height: 50px;
-    position: relative;
-    font-size: 30px;
-    margin: 30px 0;
-    margin-left: -30px;
-  }
-  .hd span{
-    padding-left: 20px;
-    color: red;
-    font-size: 30px;
-  }
-  .hd .v-btn{
-    float: right;
-    margin-right: 20px;
-  }
-  .counter{
-    width: 1240px;
-  }
-  .bd-left{
-    float: left;
-    width: 435px;
-    margin-right: 10px;
-    margin-top: -50px;
-  }
-  .bd-right{
-    padding-left:20px ;
-    width: 805px;
-    position: relative;
-    margin-top: -90px;
+ .hd{
+   height: 50px;
+   position: relative;
+   font-size: 30px;
+   margin: 30px 0;
+ }
+ .hd span{
+   padding-left: 20px;
+   color: red;
+   font-size: 30px;
+ }
+ .hd .v-btn{
+   float: right;
+   margin-right: 20px;
+ }
+ .counter{
+   width: 1240px;
+   display: flex;
+ }
+ .bd-left{
+   float: left;
+   width: 435px;
+   margin-left: 15px;
+   margin-top: -50px;
+ }
+ .bd-right{
+   padding-left:20px ;
+   width: 805px;
+   position: relative;
+   margin-top: -90px;
+   float: left;
+   margin-left: 10px;
 
-  }
-  .bd-right .list-container ul{
-    list-style-type: none;
-    display: inline-block;
-    padding: 0;
-    margin: 0;
-  }
-  .bd-right .list-container li{
-    display: inline-block;
-    margin-right: 10px;
-    width: 380px;
-    height: 360px;
-  }
-  .bd-right .list-container li h4{
-    font-size: 20px;
-    font-weight: 700;
-    margin-top: -20px;
-    align-items: center;
-    margin-left: 120px;
-  }
-  .bd-right .list-container li .v-btn{
-    color: red;
-    margin: 0px 150px;
-  }
-  </style>
+ }
+ .bd-right .list-container ul{
+   list-style-type: none;
+   display: inline-block;
+   padding: 0;
+   margin: 0;
+ }
+ .bd-right .list-container li{
+   display: inline-block;
+   margin-right: 10px;
+   width: 380px;
+   height: 360px;
+ }
+ .bd-right .list-container li h4{
+   font-size: 20px;
+   font-weight: 700;
+   margin-top: -20px;
+   align-items: center;
+   margin-left: 120px;
+ }
+ .bd-right .list-container li .v-btn{
+   color: red;
+   margin: 0px 150px;
+ }
+ </style>
+ 
   
