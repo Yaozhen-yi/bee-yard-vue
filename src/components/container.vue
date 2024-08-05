@@ -77,8 +77,8 @@ import Right4 from "@/assets/images/portable.jpg";
     margin:20px -10px;
 }
 .lunbo{
-  margin-top: -40px;
-  margin-left: -30px;
+  margin-top: 40px;
+  margin-left: 5px;
 }
   .hd{
     height: 50px;
