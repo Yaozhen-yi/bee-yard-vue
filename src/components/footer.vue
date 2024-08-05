@@ -7,11 +7,11 @@
         <v-row  justify="center" >
             <v-btn style="margin:20px;">
                 <v-icon icon="mdi-phone"></v-icon>
-                <span>0921-211820</span>
+                <span>xxxxxxxxxx</span>
             </v-btn>
             <v-btn style="margin:20px;">
                 <v-icon icon="mdi-email"></v-icon>
-                <span>jinghuangwu4@gmail.com</span>
+                <span>xxxxxxxxxxx@gmail.com</span>
             </v-btn>
             <v-btn style="margin:20px;">
                 <v-icon icon="mdi-facebook"></v-icon>
